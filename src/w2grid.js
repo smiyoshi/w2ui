@@ -4790,7 +4790,7 @@
                     var e = event.originalEvent,
                         scrolldata = gridBody.data('scrolldata'),
                         recordsContainer = $(this).siblings('.w2ui-grid-records').addBack().filter('.w2ui-grid-records'),
-                        amount = (typeof e.wheelDelta != null && typeof e.wheelDelta !='undefined') ? e.wheelDelta * -1 / 120 : (e.detail || e.deltaY) / 3, // normalizing scroll speed
+                        amount = typeof e.wheelDelta != null ? e.wheelDelta * -1 / 120 : (e.detail || e.deltaY) / 3, // normalizing scroll speed
                         newScrollTop = recordsContainer.scrollTop();
 
                     scrolldata.time = +new Date();
