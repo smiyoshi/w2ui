@@ -8305,7 +8305,7 @@ w2utils.event = {
                     var e = event.originalEvent,
                         scrolldata = gridBody.data('scrolldata'),
                         recordsContainer = $(this).siblings('.w2ui-grid-records').addBack().filter('.w2ui-grid-records'),
-                        amount = typeof e.wheelDelta != null ? e.wheelDelta * -1 / 120 : (e.detail || e.deltaY) / 3, // normalizing scroll speed
+                        amount = (typeof e.wheelDelta != null && typeof e.wheelDelta !='undefined') ? e.wheelDelta * -1 / 120 : (e.detail || e.deltaY) / 3, // normalizing scroll speed
                         newScrollTop = recordsContainer.scrollTop();
 
                     scrolldata.time = +new Date();
@@ -10187,7 +10187,7 @@ w2utils.event = {
                     var col  = obj.columns[ii];
                     if (colg.colspan != null) colg.span = colg.colspan;
                     if (colg.span == null || colg.span != parseInt(colg.span)) colg.span = 1;
-                    if (col.text == null && col.caption != null) {
+                    if (typeof col !== 'undefined' && col.text == null && col.caption != null) {
                         console.log('NOTICE: grid column.caption property is deprecated, please use column.text. Column ->', col);
                         col.text = col.caption;
                     }
@@ -10285,7 +10285,7 @@ w2utils.event = {
                 }
                 for (var i = 0; i < obj.columns.length; i++) {
                     var col  = obj.columns[i];
-                    if (col.text == null && col.caption != null) {
+                    if (typeof col !== 'undefined' && col.text == null && col.caption != null) {
                         console.log('NOTICE: grid column.caption property is deprecated, please use column.text. Column -> ', col);
                         col.text = col.caption;
                     }
