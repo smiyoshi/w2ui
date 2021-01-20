@@ -6672,7 +6672,7 @@
                     var col  = obj.columns[ii];
                     if (colg.colspan != null) colg.span = colg.colspan;
                     if (colg.span == null || colg.span != parseInt(colg.span)) colg.span = 1;
-                    if (col.text == null && col.caption != null) {
+                    if (typeof col !== 'undefined' && col.text == null && col.caption != null) {
                         console.log('NOTICE: grid column.caption property is deprecated, please use column.text. Column ->', col);
                         col.text = col.caption;
                     }
@@ -6770,7 +6770,7 @@
                 }
                 for (var i = 0; i < obj.columns.length; i++) {
                     var col  = obj.columns[i];
-                    if (col.text == null && col.caption != null) {
+                    if (typeof col !== 'undefined' && col.text == null && col.caption != null) {
                         console.log('NOTICE: grid column.caption property is deprecated, please use column.text. Column -> ', col);
                         col.text = col.caption;
                     }
